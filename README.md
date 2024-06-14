@@ -1,4 +1,9 @@
-# Astro Starter Kit: Basics
+# Landings PoC
+
+The requisite is having a simple project that can render pages fast and be simple to understand. It has multiple stacks
+integrated in different PRs to see which one fits the best.
+
+## Astro Starter Kit: Basics
 
 ```sh
 npm create astro@latest -- --template basics
