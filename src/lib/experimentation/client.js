@@ -1,10 +1,13 @@
-import { GrowthBook } from "@growthbook/growthbook";
+// Needed to be able to run GrowthBook locally and in the server since the first is Node and the second Edge
+// https://linen.growthbook.io/t/442993/hi-guys-i-m-having-some-package-module-issues-using-the-sdk-
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+
+const { GrowthBook } = require("@growthbook/growthbook");
 
 let client = null;
 
 const getClient = async () => {
-if (client) return growbook;
-
   const growbook = new GrowthBook({
     apiHost: "https://cdn.growthbook.io",
     clientKey: import.meta.env.PUBLIC_GROWTHBOOK_SDK_KEY,
