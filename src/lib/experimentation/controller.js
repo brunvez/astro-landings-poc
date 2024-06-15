@@ -3,10 +3,12 @@ import { getFeatureValue } from "./client";
 
 export class ExperimentController extends Controller {
   static targets = ["variation"];
+  static values = {
+    name: String
+  }
 
   connect() {
-    const experimentName = this.element.dataset.experimentName;
-    getFeatureValue(experimentName)
+    getFeatureValue(this.experimentName())
       .then((bucket) => this.showVisibleVariation(bucket));
   }
 
@@ -14,5 +16,9 @@ export class ExperimentController extends Controller {
     this.variationTargets.forEach((element) => {
       element.hidden = element.dataset.bucket !== variationName;
     })
+  }
+
+  experimentName() {
+    return this.nameValue;
   }
 }
